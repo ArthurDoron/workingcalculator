@@ -17,9 +17,9 @@
             </td>
         </tr>
         <tr>
-            <td><input type="button" value="%"></td>
+            <td><input type="button" value="%" onclick="calculatePercentage()"></td>
             <td><input type="button" onclick="clearInput()" value="C" class="clear"></td>
-            <td><input type="button" value="B" class="clear"></td>
+            <td><input type="button" value="⌫" class="clear" onclick="del()"></td>
             <td><input type="button" onclick="divide()" value="/" class="op"></td>
         </tr>
         <tr>
@@ -41,7 +41,7 @@
             <td><input type="button" onclick="add()" value="+" class="op"></td>
         </tr>
         <tr>
-            <td><input type="button" value="+/-"></td>
+            <td><input type="button" value="00" onclick="appendNumber('00')"></td>
             <td><input type="button" onclick="appendNumber(0)" value="0"></td>
             <td><input type="button" onclick="appendNumber('.')" value="."></td>
             <td><input type="button" onclick="calculate()" value="=" class="equal"></td>
@@ -90,7 +90,21 @@
             const result = eval(currentInput);
             document.getElementById('result').value = result;
             currentInput.toString();
+            currentOperator = '';
         }
-        currentOperator = '';
+        
+        function del() {
+            let display = document.getElementById("result");
+            display.value = display.value.slice(0, -1);
+            currentInput=display.value;
+        }
+
+        function calculatePercentage() {
+            try {
+                result.value = eval(result.value) / 100;
+            } catch (error) {
+                result.value = 'Error';
+            }
+        }
     </script>
 </body>
