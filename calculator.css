@@ -35,6 +35,10 @@ input[type="text"] {
     border: 2px solid black; 
 } 
 
+input[type="button"]:hover {
+    color: gray;
+}
+
 .op{
     background: skyblue;
     color: red;
