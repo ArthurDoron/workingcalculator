@@ -89,8 +89,7 @@
         function calculate(){
             const result = eval(currentInput);
             document.getElementById('result').value = result;
-            currentInput.toString();
-            currentOperator = '';
+            currentInput = result.toString();
         }
         
         function del() {
